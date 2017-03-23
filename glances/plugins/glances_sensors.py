@@ -273,8 +273,10 @@ class GlancesGrabSensors(object):
         output: a list"""
         ret = []
         if type == SENSOR_TEMP_UNIT:
+            self.stemps = psutil.sensors_temperatures()
             input_list = self.stemps
         elif type == SENSOR_FAN_UNIT:
+            self.sfans = psutil.sensors_fans()
             input_list = self.sfans
         else:
             return ret
